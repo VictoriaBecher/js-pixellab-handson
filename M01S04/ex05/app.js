@@ -3,7 +3,7 @@ var defaultWarningMessage = `Nu ai introdus un numar. Folosesc ${defaultNumber}`
 
 var i = 0;
 var number = prompt('Introdu un numar');
-number = number.trim();
+// number = number.trim();
 
 // for (i = 0; i <= 100; i++) {
 //   console.log(i);
@@ -17,7 +17,7 @@ number = number.trim();
 
 // Folosind metoda prompt cere utilizatorului numarul pentru care trebuie sa gasesti multipli si afiseaza mesajul: “Acest numar este multiplu de x.”
 
-if (number === null || number.length === 0) {
+if (number === null || number.trim().length === 0) {
   console.warn(defaultWarningMessage);
   number = defaultNumber;
 } else {
