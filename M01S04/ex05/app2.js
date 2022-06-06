@@ -6,9 +6,9 @@ var defaultWarningMessage = `Nu ai introdus un numar. Folosesc ${defaultNumber}`
 
 var i = 0;
 var number = prompt('Introdu un numar');
-number = number.trim();
+// number = number.trim();
 
-if (number === null || number.length === 0) {
+if (number === null || number.trim().length === 0) {
   console.warn(defaultWarningMessage);
   number = defaultNumber;
 } else {

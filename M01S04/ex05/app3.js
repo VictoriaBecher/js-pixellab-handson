@@ -9,13 +9,13 @@ var defaultMaxWarningMessage = `Nu ai introdus un numar. Folosesc numarul maxim 
 
 var i = 0;
 var number = prompt('Introdu un numar pentru a-i afisa multiplii');
-number = number.trim();
+// number = number.trim();
 var maxNumber = prompt(
   'Introdu numarul maxim pana la care sa se afiseze multiplii',
 );
-maxNumber = maxNumber.trim();
+// maxNumber = maxNumber.trim();
 
-if (number === null || number.length === 0) {
+if (number === null || number.trim().length === 0) {
   console.warn(defaultWarningMessage);
   number = defaultNumber;
 } else {
@@ -27,7 +27,7 @@ if (isNaN(number) === true) {
   number = defaultNumber;
 }
 
-if (maxNumber === null || maxNumber.length === 0) {
+if (maxNumber === null || maxNumber.trim().length === 0) {
   console.warn(defaultMaxWarningMessage);
   maxNumber = defaultMaxNumber;
 } else {
