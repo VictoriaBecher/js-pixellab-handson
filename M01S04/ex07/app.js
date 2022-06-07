@@ -87,3 +87,12 @@ for (var i = 0; i < friendsLength; i++) {
   }
   console.log(friend.name + ' ' + friend.surname);
 }
+
+for (var i = 0; i < 99; i++) {
+  console.log(i);
+}
+// numara pana la 99, la sfarsit i ramane 99
+// si apoi pleaca de la 99 pana la 150
+for (; i < 150; i++) {
+  console.log(i);
+}
