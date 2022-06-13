@@ -37,17 +37,15 @@ varsta dintre fiecare membru al arrayului friends si ceilalti membri.
 Poti folosi metoda pentru a converti numerele negative in pozitive. Intre Larry si Steven este o diferenta de x ani.`);
 
 for (var i = 0; i < person.friends.length; i++) {
-  var friendName = person.friends[i].name;
-  var friendAge = person.friends[i].age;
+  var friend = person.friends[i];
 
   for (var j = 0; j < person.friends.length; j++) {
-    var innerFriendName = person.friends[j].name;
-    var innerFriendAge = person.friends[j].age;
+    var innerFriend = person.friends[j];
 
-    if (friendName !== innerFriendName) {
-      ageDiff = Math.abs(friendAge - innerFriendAge);
+    if (friend !== innerFriend) {
+      ageDiff = Math.abs(friend.age - innerFriend.age);
       console.log(
-        `Intre ${friendName} si ${innerFriendName} este o diferenta de ${ageDiff} ani.`,
+        `Intre ${friend.name} si ${innerFriend.name} este o diferenta de ${ageDiff} ani.`,
       );
     }
   }
