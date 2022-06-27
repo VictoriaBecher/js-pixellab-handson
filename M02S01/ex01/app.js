@@ -9,6 +9,24 @@ class Car {
   topSpeed = 160;
   topReverseSpeed = -50;
   areLightsOn = false;
+  isTrunkOpen = false;
+
+  displaySpeed() {
+    console.log(`Viteza curenta este: ${this.speed}.`);
+  }
+
+  stop() {
+    this.speed = 0;
+    console.log(this.speed);
+  }
+
+  openTrunk() {
+    this.isTrunkOpen = true;
+  }
+
+  closeTrunk() {
+    this.isTrunkOpen = false;
+  }
 
   turnLightsOn() {
     this.areLightsOn = true;
@@ -57,3 +75,25 @@ const audi = new Car('Audi', 'black', 4, 50);
 const opel = new Car('Opel', 'red', 4, 3);
 
 const cars = [audi, opel];
+
+cars.forEach(function (car) {
+  console.log(
+    `Masina era marca ${car.make} si se deplasa cu ${car.speed} km/h.`,
+  );
+});
+
+// cars.forEach(function (car) {
+//   car.decelerate();
+//   car.decelerate();
+//   car.decelerate();
+//   car.decelerate();
+//   car.decelerate();
+
+//   console.log(`Viteza noua este ${car.speed} km/h.`);
+// });
+
+cars.forEach(function (car) {
+  newSpeed = car.speed - 5;
+
+  console.log(`Viteza noua este ${newSpeed} km/h.`);
+});

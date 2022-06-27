@@ -5,6 +5,23 @@ const Car = {
   speed: 0,
   topSpeed: 160,
   topReverseSpeed: 50,
+  areLightsOn: false,
+
+  turnLightsOn() {
+    this.areLightsOn = true;
+  },
+
+  turnLightsOff() {
+    this.areLightsOn = false;
+  },
+
+  flashLights() {
+    this.turnLightsOn();
+
+    setTimeout(() => {
+      this.turnLightsOff();
+    }, 3000);
+  },
 
   displaySpeed: function () {
     console.log(`Viteza curenta este: ${this.speed}`);
