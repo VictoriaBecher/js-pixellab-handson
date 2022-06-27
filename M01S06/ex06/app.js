@@ -19,3 +19,12 @@ function paragraphLog(message) {
 console.log('Apar in document');
 
 console.domLog = paragraphLog;
+
+function displayAll() {
+  for (let i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}
+
+displayAll('se', 'afiseaza', 'toate', 'cuvintele');
+displayAll(1, 2, 3, 4, 5);

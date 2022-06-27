@@ -12,35 +12,35 @@ let messageBrowser = '';
 
 // document.body.append(paragraphElement);
 
+switch (true) {
+  case userAgentString.includes('Chrome'):
+    messageBrowser = 'Navighez folosind Chrome';
+    browser = 'Chrome';
+    break;
+  case userAgentString.includes('Mozilla'):
+    messageBrowser = 'Navighez folosind Mozilla';
+    browser = 'Mozilla';
+    break;
+  case userAgentString.includes('Internet Explorer'):
+    messageBrowser = 'Navighez folosind Internet Explorer';
+    browser = 'Internet Explorer';
+    break;
+  default:
+    messageBrowser = 'Nu stim ce browser folosesti';
+    browser = 'unknown';
+}
+
+paragraphElement.innerText = messageBrowser;
+document.body.append(paragraphElement);
+
 setTimeout(function () {
+  const userName = prompt(`${browser} vrea sa stie cum te cheama?`);
+  const messageHeading = `Salut ${userName}`;
+
+  headingElement.innerText = messageHeading;
+  document.body.append(headingElement);
+
   setTimeout(function () {
-    switch (true) {
-      case userAgentString.includes('Chrome'):
-        messageBrowser = 'Navighez folosind Chrome';
-        browser = 'Chrome';
-        break;
-      case userAgentString.includes('Mozilla'):
-        messageBrowser = 'Navighez folosind Mozilla';
-        browser = 'Mozilla';
-        break;
-      case userAgentString.includes('Internet Explorer'):
-        messageBrowser = 'Navighez folosind Internet Explorer';
-        browser = 'Internet Explorer';
-        break;
-      default:
-        messageBrowser = 'Nu stim ce browser folosesti';
-        browser = 'unknown';
-    }
-
-    paragraphElement.innerText = messageBrowser;
-    document.body.append(paragraphElement);
-
-    const userName = prompt(`${browser} vrea sa stie cum te cheama?`);
-    const messageHeading = `Salut ${userName}`;
-
-    headingElement.innerText = messageHeading;
-    document.body.append(headingElement);
+    paragraphElement.remove();
   }, 3000);
-
-  paragraphElement.remove();
 }, 3000);
