@@ -16,10 +16,12 @@ class Car {
     this.carTop = document.createElement('div');
     this.carTop.classList.add('car__top');
     this.car.append(this.carTop);
+    this.carTop.style.backgroundColor = this.color;
 
     this.carBody = document.createElement('div');
     this.carBody.classList.add('car__body');
     this.car.append(this.carBody);
+    this.carBody.style.backgroundColor = this.color;
 
     this.lightBack = document.createElement('div');
     this.lightBack.classList.add('light', 'light--back');
@@ -44,6 +46,34 @@ class Car {
     this.wheelBack.append(this.hubCapBack);
   }
 
+  areHazardsOn = false;
+
+  turnLightsOn() {
+    this.lightBack.style.backgroundColor = 'red';
+    this.lightFront.style.backgroundColor = 'red';
+  }
+
+  turnLightsOff() {
+    this.lightBack.style.backgroundColor = 'white';
+    this.lightFront.style.backgroundColor = 'white';
+  }
+
+  toggleHazards() {
+    this.interval = setInterval(() => {
+      this.turnLightsOn();
+
+      setTimeout(() => {
+        this.turnLightsOff();
+      }, 1000);
+    }, 2000);
+    this.areHazardsOn = true;
+  }
+
+  stopHazards() {
+    clearInterval(this.interval);
+    this.areHazardsOn = false;
+  }
+
   moveTo(positionX, positionY) {
     this.positionX = positionX;
     this.positionY = positionY;
@@ -58,6 +88,17 @@ class Car {
   disengageBreak() {
     this.lightBack.style.backgroundColor = 'white';
   }
+
+  changeTireColor(color) {
+    this.wheelFront.style.backgroundColor = color;
+    this.wheelBack.style.backgroundColor = color;
+  }
+
+  changeCapColor(color) {
+    this.hubCapFront.style.backgroundColor = color;
+    this.hubCapBack.style.backgroundColor = color;
+  }
+
   render() {
     document.body.append(this.frame);
   }
@@ -65,3 +106,9 @@ class Car {
 const car01 = new Car(140, 140, 'teal');
 car01.render();
 car01.moveTo(400, 500);
+
+const car02 = new Car(200, 300, '#1C8BEF');
+car02.render();
+
+car02.changeTireColor('lightblue');
+car02.changeCapColor('magenta');

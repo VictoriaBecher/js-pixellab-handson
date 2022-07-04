@@ -68,3 +68,19 @@ $container.before(
     text: 'jQuery is old',
   }),
 );
+
+const $jQueryLink = $('<a>', {
+  text: 'aici.',
+  class: 'jQuery-link',
+  title: 'jQuery Link',
+  href: 'https://learn.jquery.com/',
+  target: '_blank',
+});
+
+const $p3 = $('<p>', {
+  id: 'documentation',
+  text: `Documentatia jQuery poate fi gasita `,
+  class: 'documentation',
+}).append($jQueryLink);
+
+$body.append($p3);

@@ -27,7 +27,6 @@ class Car {
   closeTrunk() {
     this.isTrunkOpen = false;
   }
-
   turnLightsOn() {
     this.areLightsOn = true;
   }
