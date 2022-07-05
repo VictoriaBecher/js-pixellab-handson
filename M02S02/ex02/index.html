@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Person Form</title>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="app.js"></script>
 </head>
 
 <body>
@@ -40,10 +43,51 @@
     <fieldset>
       <legend>Skills</legend>
     </fieldset>
-  </form>
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="app.js"></script>
+    <input
+      type="checkbox"
+      name="has-pets"
+      id="has-pets"
+    >
+    <label for="has-pets">Are animale de casa</label>
+    <fieldset
+      style="display: none"
+      class="pet-fieldset"
+    >
+      <legend>Pets</legend>
+
+      <label for="pet-name">Nume animal</label>
+      <input
+        type="text"
+        name="pet-name"
+        id="pet-name"
+      >
+
+      <br> <br>
+
+      <label for="pet-species">Specie animal</label>
+      <input
+        type="text"
+        name="pet-species"
+        id="pet-species"
+      >
+
+      <br> <br>
+
+      <label for="pet-age">Varsta animal</label>
+      <input
+        type="number"
+        name="pet-age"
+        id="pet-age"
+      >
+
+      <br> <br>
+      <button
+        type="button"
+        title="Adauga animal"
+      >Adauga animal</button>
+    </fieldset>
+  </form>
 </body>
 
 </html>

@@ -75,6 +75,7 @@ const $jQueryLink = $('<a>', {
   title: 'jQuery Link',
   href: 'https://learn.jquery.com/',
   target: '_blank',
+  rel: 'noopener noreferrer',
 });
 
 const $p3 = $('<p>', {
