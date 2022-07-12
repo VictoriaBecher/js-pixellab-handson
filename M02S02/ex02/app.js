@@ -11,6 +11,8 @@ $(function () {
 
       $form.trigger('reset');
       $('.renderSkillsUl').remove();
+      $('.renderPetUl').remove();
+      $('.renderFriendUl').remove();
     })
     .find('fieldset:nth-child(2)')
     .append(renderSkillControls());

@@ -7,20 +7,23 @@ class Car {
   }
 
   accelerate(accelerateCoefficient) {
-    this.speed = this.speed + accelerateCoefficient;
+    this.speed += accelerateCoefficient;
 
     return this;
   }
 
   decelerate(decelerateCoeffiecient) {
-    this.speed = this.speed - decelerateCoeffiecient;
+    this.speed -= decelerateCoeffiecient;
 
     return this;
   }
 
   setSpeed(speed) {
     this.speed = speed;
+
     this.displaySpeed();
+
+    return this;
   }
 
   displaySpeed(speedClass) {
