@@ -33,7 +33,7 @@ $(function () {
 
       const $inputs = $petButton
         .parents('.pet-fieldset')
-        .find('input[name^="pet-"]');
+        .find('input[name^="pet-"]:not([name^="pet-data"])');
 
       const petValues = [];
       $inputs.each(function () {
@@ -74,6 +74,70 @@ $(function () {
 
         return $ul;
       }
+
+      $inputs.val('');
+    });
+
+  $('#has-friends').on('click', function () {
+    const $checkbox = $(this);
+    const $nextFieldset = $checkbox.siblings('.friend-fieldset');
+
+    if ($checkbox.prop('checked')) {
+      $nextFieldset.slideDown();
+    } else {
+      $nextFieldset.slideUp();
+    }
+  });
+
+  $('.friend-fieldset')
+    .find('button[type="button"]')
+    .on('click', function () {
+      const $friendButton = $(this);
+
+      const $inputs = $friendButton
+        .parents('.friend-fieldset')
+        .find('input[name^="friend-"]:not([name^="friend-data"])');
+
+      const friendValues = [];
+      $inputs.each(function () {
+        const $input = $(this);
+
+        friendValues.push($input.val());
+      });
+
+      $friendButton.after(renderFriendUl(friendValues));
+
+      function renderFriendUl(friendValues) {
+        const friendsClassName = 'renderFriendUl';
+        let $ul = $(`.${friendsClassName}`);
+
+        if ($ul.length <= 0) {
+          $ul = $('<ul>', {
+            class: friendsClassName,
+          });
+        }
+        const friendData = friendValues.join(',');
+
+        const $friendLi = $('<li>')
+          .append(
+            $('<span>', {
+              text: friendData,
+            }),
+          )
+          .append(
+            $('<input>', {
+              value: friendData,
+              type: 'hidden',
+              name: `friend-data-${friendData}`,
+            }),
+          );
+
+        $friendLi.appendTo($ul);
+
+        return $ul;
+      }
+
+      $inputs.val('');
     });
 
   // hoisting
@@ -103,7 +167,8 @@ $(function () {
       .empty()
       .append(renderPerson(formData))
       .append(renderSkills(formData))
-      .append(renderPets(formData));
+      .append(renderPets(formData))
+      .append(renderFriends(formData));
 
     return $container;
   }
@@ -164,6 +229,33 @@ $(function () {
     return $p;
   }
 
+  function renderFriends(formData) {
+    const iterator = formData.entries();
+    const objectData = Object.fromEntries(iterator);
+
+    const keys = Object.keys(objectData);
+    const friendsArray = [];
+
+    keys.forEach(function (formFriendsData, index) {
+      if (index < keys.length) {
+        const keyName = formFriendsData;
+        if (keyName.startsWith('friend-data')) {
+          friendsArray.push(objectData[keyName]);
+        }
+      }
+    });
+
+    if (friendsArray.length <= 0) {
+      return '';
+    }
+
+    const $p = $('<p>', {
+      text: `Friends: ${friendsArray}`,
+    });
+
+    return $p;
+  }
+
   function renderSkillControls() {
     function renderSkillsUl(skill) {
       const skillsClassName = 'renderSkillsUl';
@@ -194,27 +286,45 @@ $(function () {
           $editSkillButton.siblings('.saveSkillButton').show();
           $editSkillButton.hide();
         })
-        .on('click', '.cancelSkillButton', function () {
-          const $cancelButton = $(this);
 
-          $cancelButton.hide();
-          $cancelButton
+        .on('click', '.actionButton', function () {
+          const $actionButton = $(this);
+
+          $actionButton.hide();
+          $actionButton
             .siblings('input[name^="skill-"]')
             .attr('type', 'hidden');
-          $cancelButton.siblings('.saveSkillButton').hide();
-          $cancelButton.siblings('.skillDisplay').show();
-          $cancelButton.siblings('.removeSkillButton').show();
-          $cancelButton.siblings('.editSkillButton').show();
-        })
-        .on('click', '.saveSkillButton', function () {
-          const $saveButton = $(this);
-
-          $saveButton
+          $actionButton
             .siblings('.skillDisplay')
-            .text($saveButton.siblings('input[name^="skill-"]').val());
+            .text($actionButton.siblings('input[name^="skill-"]').val());
 
-          // insert code from homework here
+          $actionButton.siblings('.skillDisplay').show();
+          $actionButton.siblings('.removeSkillButton').show();
+          $actionButton.siblings('.cancelSkillButton').hide();
+          $actionButton.siblings('.saveSkillButton').hide();
+          $actionButton.siblings('.editSkillButton').show();
         });
+
+      //   $cancelButton.hide();
+      //   $cancelButton
+      //     .siblings('input[name^="skill-"]')
+      //     .attr('type', 'hidden');
+      //   $cancelButton.siblings('.saveSkillButton').hide();
+      //   $cancelButton.siblings('.skillDisplay').show();
+      //   $cancelButton.siblings('.removeSkillButton').show();
+      //   $cancelButton.siblings('.editSkillButton').show();
+
+      //   $saveButton.hide();
+      //   $saveButton
+      //     .siblings('.skillDisplay')
+      //     .text($saveButton.siblings('input[name^="skill-"]').val());
+
+      //   // insert code from homework here
+      //   $saveButton.siblings('.saveSkillButton').hide();
+      //   $saveButton.siblings('.skillDisplay').show();
+      //   $saveButton.siblings('.removeSkillButton').show();
+      //   $saveButton.siblings('.editSkillButton').show();
+      // });
 
       $('<li>')
         .append(
@@ -250,7 +360,7 @@ $(function () {
           $('<button>', {
             type: 'button',
             text: 'Salveaza',
-            class: 'saveSkillButton',
+            class: 'actionButton saveSkillButton',
             title: 'Salveaza skill',
           }).hide(),
         )
@@ -258,7 +368,7 @@ $(function () {
           $('<button>', {
             type: 'button',
             text: 'Anuleaza',
-            class: 'cancelSkillButton',
+            class: 'actionButton cancelSkillButton',
             title: 'Anuleaza',
           }).hide(),
         )
