@@ -22,6 +22,10 @@ const direction = {
   SE: 'fw',
   NE: 'fw',
   SW: 'back',
+  ArrowDown: 'fw',
+  ArrowUp: 'back',
+  ArrowLeft: 'back',
+  ArrowRight: 'fw',
 };
 
 const secondAxis = {
@@ -36,6 +40,12 @@ const secondDirection = {
   SE: 'fw',
   NE: 'back',
   SW: 'fw',
+};
+const arrowMap = {
+  ArrowDown: 'y',
+  ArrowUp: 'y',
+  ArrowLeft: 'x',
+  ArrowRight: 'x',
 };
 
 const hero = {
@@ -68,6 +78,22 @@ controls.addEventListener('click', function (event) {
     currentAxis2,
     currentDirection2,
   );
+
+  renderHero(hero);
+});
+
+document.addEventListener('keydown', (event) => {
+  const arrowPressed = event.code;
+
+  // early return
+  if (!arrowPressed.startsWith('Arrow')) {
+    return;
+  }
+
+  const currentAxis = arrowMap[arrowPressed];
+  const currentDirection = direction[arrowPressed];
+
+  updateHeroPosition(currentAxis, currentDirection);
 
   renderHero(hero);
 });
