@@ -16,10 +16,14 @@ const direction = {
   E: 'fw',
   ArrowDown: 'fw',
   ArrowUp: 'back',
+  ArrowLeft: 'back',
+  ArrowRight: 'fw',
 };
 const arrowMap = {
   ArrowDown: 'y',
   ArrowUp: 'y',
+  ArrowLeft: 'x',
+  ArrowRight: 'x',
 };
 const hero = {
   x: 0,

@@ -1,3 +1,44 @@
 {
-  "persons": []
+  "persons": [
+    {
+      "id": "test",
+      "name": "Victoria",
+      "surname": "Becher",
+      "skills": [
+        "html",
+        "css",
+        "js"
+      ]
+    },
+    {
+      "id": 1658430105540,
+      "name": "Pixie",
+      "surname": "Pixellab",
+      "skills": []
+    },
+    {
+      "id": 1658430142292,
+      "name": "Pixie",
+      "surname": "Pixellab",
+      "skills": []
+    },
+    {
+      "id": 1658430322285,
+      "name": "vic",
+      "surname": "el",
+      "skills": []
+    },
+    {
+      "id": 1658430680567,
+      "name": "pixie",
+      "surname": "the cat",
+      "skills": []
+    },
+    {
+      "id": 1658431444434,
+      "name": "kjlm",
+      "surname": "bhjh",
+      "skills": []
+    }
+  ]
 }
