@@ -59,11 +59,11 @@ console.log(
 console.warn(
   `Calculeaza si afiseaza (folosind anul curent) anul de nastere al animalului de pe pozitia 2.`,
 );
-console.log((2022 - person.pets[2].age).toString());
+console.log((2023 - person.pets[2].age).toString());
 
 console.warn(`Calculeaza si salveaza in variabila difference diferenta de ani dintre persoana si animalul de pe
 pozitia 0 si afiseaza aceasta diferenta. Foloseste anul curent.`);
-var difference = 2022 - person.birthYear - person.pets[0].age;
+var difference = 2023 - person.birthYear - person.pets[0].age;
 console.log(`${difference}`);
 
 console.warn(
@@ -112,9 +112,9 @@ prop03Li.innerText = prop03;
 
 console.warn(`Afiseaza propozitia: “Animalele mele s-au nascut in xxxx, xxx, respectiv xxx.” Foloseste anul curent
 pentru a efectua scaderea.`);
-var birthYearTurtle = 2022 - person.pets[0].age;
-var birthYearCat = 2022 - person.pets[1].age;
-var birthYearDog = 2022 - person.pets[2].age;
+var birthYearTurtle = 2023 - person.pets[0].age;
+var birthYearCat = 2023 - person.pets[1].age;
+var birthYearDog = 2023 - person.pets[2].age;
 
 var prop04 = `Animalele mele s-au nascut in ${birthYearTurtle}, ${birthYearCat}, respectiv ${birthYearDog}.`;
 

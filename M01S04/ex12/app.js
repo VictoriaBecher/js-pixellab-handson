@@ -12,8 +12,8 @@ function contextTest() {
 // console.log(localVariable);
 //locarVariable is not defined, nu e in contextul global (e doar in functie)
 
-console.log(localVariable);
+// console.log(localVariable);
 
 contextTest();
-console.log(localVariable);
+// console.log(localVariable);
 // localVariable is not defined, nu e in contextul local

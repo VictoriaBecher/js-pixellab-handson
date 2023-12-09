@@ -53,7 +53,7 @@ xx ani. Intre Dragos si Mars… ” (repeta pentru toate intrarile din array).`)
 var message = '';
 for (var i = 0; i < person.pets.length; i++) {
   var pet = person.pets[i];
-  var personAge = 2022 - person.birthYear;
+  var personAge = 2023 - person.birthYear;
   var ageDiff = Math.abs(personAge - pet.age);
 
   message =
@@ -71,7 +71,7 @@ console.warn(`Folosind o bucla for afiseaza in ordine inversa numele animalelor 
 “Animalul meu se numeste xxxx.”.`);
 for (var i = person.pets.length - 1; i >= 0; i--) {
   var petName = person.pets[i].name;
-  console.log(`Animalul meu se numeste ${petName}`);
+  console.log(`Animalul meu se numeste ${petName}.`);
 }
 
 console.warn(`Folosind o bucla for afla care este cel mai in varsta animal si afiseaza propozitia: “xxx este cel mai
@@ -87,7 +87,7 @@ for (i = 0; i < person.pets.length; i++) {
     oldestPet = petName;
   }
 }
-var ageDiff = Math.abs(2022 - person.birthYear - oldestPetAge);
+var ageDiff = Math.abs(2023 - person.birthYear - oldestPetAge);
 console.log(
   `${oldestPet} este cel mai batran animal pe care il am, dar intre noi este o diferenta de ${ageDiff} ani.`,
 );

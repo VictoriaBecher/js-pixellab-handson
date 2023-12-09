@@ -1,5 +1,3 @@
-const [_, $, ...parameters] = process.argv;
+const [, , radius] = process.argv;
 
-const radius = parameters[0];
-
-console.log(Math.PI * radius ** 2);
+console.log(`Suprafata cercului este ${radius * Math.PI ** 2}.`);

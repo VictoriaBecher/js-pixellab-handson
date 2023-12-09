@@ -1,13 +1,13 @@
 var object = {
   name: 'Victoria',
   surname: 'Becher',
-  age: 36,
+  age: 37,
   petOwner: false,
   carOwner: true,
 };
 
 console.log(object.name);
-// === '36'
+
 console.log(object.age.toString());
 
 // Afiseaza fraza “Ma numesc xxx yyy si am xx ani.” in consola folosind operatorul de concatenare
@@ -24,7 +24,7 @@ console.log(
 console.warn(
   `Afiseaza anul in care te-ai nascut scazand varsta pe care ai trecut-o in obiect din anul curent (un proces numit hardcodare)`,
 );
-console.log((2022 - object.age).toString());
+console.log((2023 - object.age).toString());
 
 console.warn(
   `Afiseaza fraza “xxx yyy are xx ani.” in consola folosind operatorul de concatenare`,
@@ -37,5 +37,5 @@ console.warn(
   `Afiseaza fraza “xxx s-a nascut in aaaa.” Foloseste tot anul curent pentru a scadea varsta.`,
 );
 console.log(
-  object.name + ' s-a nascut in ' + (2022 - object.age).toString() + '.',
+  object.name + ' s-a nascut in ' + (2023 - object.age).toString() + '.',
 );

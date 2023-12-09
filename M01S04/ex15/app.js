@@ -36,20 +36,20 @@ console.warn(`Folosind fisierele de la exercitiul 06, si doua bucle for imbricat
 varsta dintre fiecare membru al arrayului friends si ceilalti membri.
 Poti folosi metoda pentru a converti numerele negative in pozitive. Intre Larry si Steven este o diferenta de x ani.`);
 
-// for (var i = 0; i < person.friends.length; i++) {
-//   var friend = person.friends[i];
+for (var i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
 
-//   for (var j = 0; j < person.friends.length; j++) {
-//     var innerFriend = person.friends[j];
+  for (var j = 0; j < person.friends.length; j++) {
+    var innerFriend = person.friends[j];
 
-//     if (friend !== innerFriend) {
-//       ageDiff = Math.abs(friend.age - innerFriend.age);
-//       console.log(
-//         `Intre ${friend.name} si ${innerFriend.name} este o diferenta de ${ageDiff} ani.`,
-//       );
-//     }
-//   }
-// }
+    if (friend !== innerFriend) {
+      ageDiff = Math.abs(friend.age - innerFriend.age);
+      console.log(
+        `Intre ${friend.name} si ${innerFriend.name} este o diferenta de ${ageDiff} ani.`,
+      );
+    }
+  }
+}
 
 const pluralize = (value, data) => {
   let message = '';

@@ -81,15 +81,15 @@ cars.forEach(function (car) {
   );
 });
 
-// cars.forEach(function (car) {
-//   car.decelerate();
-//   car.decelerate();
-//   car.decelerate();
-//   car.decelerate();
-//   car.decelerate();
+cars.forEach(function (car) {
+  car.decelerate();
+  car.decelerate();
+  car.decelerate();
+  car.decelerate();
+  car.decelerate();
 
-//   console.log(`Viteza noua este ${car.speed} km/h.`);
-// });
+  console.log(`Viteza noua este ${car.speed} km/h.`);
+});
 
 cars.forEach(function (car) {
   newSpeed = car.speed - 5;

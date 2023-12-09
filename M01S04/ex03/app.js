@@ -11,10 +11,10 @@ switch (errorCode) {
 
   case 300:
     console.log('Error 300 occured');
-  //  break;
+  // break;
 
   case 400:
-    console.log('Error 200 occured');
+    console.log('Error 400 occured');
     break;
 
   case 500:
